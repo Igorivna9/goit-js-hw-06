@@ -4,11 +4,8 @@ const validLogin = (event) => {
     const email = event.currentTarget.elements.email.value;
     const password = event.currentTarget.elements.password.value;
 
-    if (email === '') {
-        alert('Enter login');
-    }
-    if (password === '') {
-        alert('Enter password');
+    if (email === '' || password === '') {
+        alert('All fields must be completed');
     }
 
     console.log(`Login: ${email}`);

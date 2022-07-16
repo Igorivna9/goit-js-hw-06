@@ -13,18 +13,39 @@ const images = [
   },
 ];
 
-const imgGallery = document.querySelector('.gallery');
-console.log(imgGallery);
+function galleryImg() {
+  const imgGallery = document.querySelector('.gallery');
+  console.log(imgGallery);
 
-const contentStyle = document.querySelectorAll('li');
-for (const image of images) {
-  imgGallery.insertAdjacentHTML(
-    `afterbegin`,
-    `<li><img src = ${image.url} alt = '${image.alt}' width='100%' height='100%' ></li>`
+  const contentStyle = images
+    .map(
+      (elem) => `<li> <img class ='img' src ='${elem.url}' alt = '${elem.alt}' /></li>`
+    )
+    .join('');
+  
+  imgGallery.insertAdjacentHTML('afterbegin', contentStyle);
+
+  imgGallery.style.listStyle = 'none';
+  imgGallery.style.display = 'flex';
+  imgGallery.style.justifyContent = 'center';
+  imgGallery.style.padding = '0';
+
+  const imgCards = document.querySelectorAll('.img');
+  imgCards.forEach(
+    (elem) => (elem.style.height = '100%') && (elem.style.width = '100%')
   );
 }
+galleryImg();
 
-imgGallery.style.listStyle = 'none';
-imgGallery.style.display = 'flex';
-imgGallery.style.justifyContent = 'center';
-imgGallery.style.padding = '0';
+// const contentStyle = document.querySelectorAll('ul');
+// for (const image of images) {
+//   imgGallery.insertAdjacentHTML(
+//     `afterbegin`,
+//     `<li><img src = ${image.url} alt = '${image.alt}' width='100%' height='100%' ></li>`
+//   );
+// }
+
+// imgGallery.style.listStyle = 'none';
+// imgGallery.style.display = 'flex';
+// imgGallery.style.justifyContent = 'center';
+// imgGallery.style.padding = '0';
