@@ -8,8 +8,11 @@ const validLogin = (event) => {
         alert('All fields must be completed');
     }
 
-    console.log(`Login: ${email}`);
-    console.log(`Pass: ${password}`);
+    const dataForm = {
+        email,
+        password,
+  };
+  console.log(dataForm);
 
     event.currentTarget.reset();
 }
